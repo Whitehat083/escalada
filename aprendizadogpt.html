@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="icon" href="olimpc.PNG" type="image/x-icon">
+    <link rel="shortcut icon" href="olimpc.PNG" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-widht, inICIAL-SCALE=1.0">
+    <title>Escalada Olímpica</title>
+
+    <style>
+        html,
+        body {
+            scroll-behavior: smooth;
+            height: 100%;
+            margin: 0;
+        }
+        
+        body {
+            /* Fonte */
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            --text-white: #ffffff;
+            --text-dark: #142136;
+            /* Cores de fundo */
+            --bg-grey-light: #f5f5f5;
+            --bg-white: #ffffff;
+            --bg-blue-dark: #142136;
+            --bg-indigo: #6366f1;
+            --bg-navcolor: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: var(--bg-grey-light);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            filter: invert(0%);
+        }
+        
+        body img {
+            filter: invert(0%);
+        }
+        
+        header {
+            background-color: var(--bg-blue-dark);
+            /*cor de fundo*/
+            color: #ffffff;
+            /*Cor da font*/
+            text-align: center;
+            /*Centraliza o textso*/
+            ;
+            padding: 20px;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            /**Adição de sombra*/
+        }
+        
+        header h1 {
+            margin: 0;
+            font-size: 2, 5em;
+            /*define o tamanho epeso da fonte*/
+            font-weight: bold;
+        }
+        
+        nav {
+            /*Cor de fundo do nav*/
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            background-color: var(--bg-white);
+            color: white;
+            position: unset;
+        }
+        
+        nav a {
+            color: var(--text-dark);
+            /*Ajusta os links paraa branco*/
+            text-decoration: none;
+            /*Remove sublinhados*/
+            padding: 10px 20px;
+            display: inline-block;
+            background-color: var(--bg-blue-dark);
+            border-radius: 5px;
+            /*efeito de transição suave*/
+        }
+        
+        nav a:hover {
+            /*Muda a cor de fundo de links*/
+            background-color: var(--bg-blue-dark);
+            border-radius: 5px;
+            /*Arredonda os cantos*/
+            animation: alternate-reverse 1s;
+            transform: scale(1.10);
+        }
+        
+        main {
+            padding: 20px;
+            /*Adiciona preencimento para separar do borde da página*/
+        }
+        
+        section {
+            background-color: #ffffff;
+            /*Define o fundo para branco*/
+            ;
+            padding: 20px;
+            margin-bottom: 20px;
+            /*Adiciona uma linha de borda inferior para titulos*/
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: 0.6s ease;
+            background-color: var(--bg-blue-dark);
+        }
+        
+        .text-wrapper {
+            background-color: var(--bg-white);
+        }
+        
+        .text-wrappern {
+            background-color: var(--bg-white);
+        }
+        
+        .text-wrapperrn {
+            background-color: var(--bg-white);
+            max-width: 5px auto;
+            height: auto;
+            margin-bottom: 20px;
+            display: center;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        section h2 {
+            border-bottom: 2px solid var(--bg-grey-light);
+            padding-bottom: 10px;
+        }
+        
+        section p {
+            margin: 0 0 10px;
+            /*remove margens para um espaçamento uniforme*/
+            ;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: var(--bg-white);
+            color: var(--text-dark);
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            position fixed;
+            bottom: 0;
+            transition: 0.6 ease;
+        }
+        
+        footer a {
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            /* 16:9 Aspect Ration*/
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%
+        }
+        
+        @media(max-widht: 768px) {
+            nav {
+                font-size: 14px;
+            }
+            .btn {
+                font-size: 16px;
+            }
+        }
+        
+        .dark-mode {
+            background-color: #333;
+            /* Cor de fundo no modo noturno */
+            color: #fff;
+            /* Cor do texto no modo noturno */
+        }
+        
+        .dark {
+            --text-white: #e6e6e6;
+            --text-dark: #ffffff;
+            --bg-grey-light: #142136;
+            --bg-white: #22395d;
+            --bg-blue-dark: #142136;
+            --bg-indigo: #7577e1;
+            --bg-navcolor: #142136;
+        }
+        
+        .container {
+            margin: auto;
+            display: block;
+            padding: 20px;
+            flex-direction: column;
+            border: 10px;
+            border-radius: 10px;
+        }
+        
+        .paragraph,
+        .heading,
+        .h2,
+        .list {
+            color: var(--text-dark);
+        }
+        
+        button,
+        .button {
+            border: none;
+            font-family: inherit;
+            cursor: alias;
+            background-color: var(--bg-blue-dark);
+            color: var(--text-white);
+            font-size: 16px;
+            font-weight: 400px;
+            text-transform: uppercase;
+            padding: 10px 20px;
+            display: inline-block;
+            border-radius: 5px;
+            transition: background-color 0.3 ease;
+        }
+        
+        button,
+        .buttom a {
+            color: var(--text-white);
+            /*Ajusta os links paraa branco*/
+            text-decoration: none;
+            /*Remove sublinhados*/
+            padding: 10px 20px;
+            display: inline-block;
+            background-color: var(--bg-grey-light);
+            border-radius: 5px;
+            /*efeito de transição suave*/
+        }
+        
+        button:hover,
+        .button:hover {
+            background-color: var(--bg-blue-dark);
+            border-radius: 5px;
+            /*Arredonda os cantos*/
+            animation: alternate-reverse 1s;
+            transform: scale(1.10);
+        }
+        
+        .buttons {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        
+        .nav-text {
+            color: var(--text-white);
+        }
+        
+        .icon {
+            width: 16px;
+            height: 16px;
+            filter: invert(100%);
+        }
+        
+        .dark-mode .icon {
+            filter: invert(100%);
+        }
+        
+        .dark-mode .button {
+            filter: invert(100%);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>História da Escalada Olímpica</h1>
+    </header>
+    <nav id="topo" class="text-wrappern">
+
+        <a class="nav-text" href="#inicio">Início</a>
+        <a class="nav-text" href="#popularizacao">Popularização</a>
+        <a class="nav-text" href="#adesao">Adesão</a>
+        <a class="nav-text" href="#video">Vídeo</a>
+        <a class="nav-text" href="#inclusao">Inclusão</a>
+        <a class="nav-text" href="#competicao">Competição</a>
+        <a class="nav-text" href="#regras">Regras</a>
+
+
+    </nav>
+    <br>
+    <img class="container" src="regras-da-escalada (1).jpg">
+
+
+    <main>
+
+        <section id="inicio" class="text-wrapper">
+            <button id="toggle" class="button"><img class="icon"  src="image.png.png">  </button>
+            <h2 class="h2">Início das Discussões:</h2>
+            <p class="paragraph">A escalada foi incorporada ao programa olímpico a pouco tempo. Aprenda agora sobre este interessante esporte. </p>
+        </section>
+        <section id="popularizacao" class="text-wrapper">
+            <h2 class="h2">Popularização:</h2>
+            <p class="paragraph">A escalada começou a ganhar visibilidade no cenário esportivo internacional nas últimas décadas do século 20. Com o crescente interesse e a constante evolução do esporte , surgiu a idéia de incluir a escalada nas Olimpíadas. A escalada ou
+                também conhecido por "Rapel esportivo", com suas várias modalidades, foi uma opção á candidato altamente interessante devido ao seu apelo visual á radicalidade e ao seu crescimento popular em escala global.
+            </p>
+        </section>
+        <section id="adesao" class="text-wrapper">
+            <h2 class="h2">Adesão:</h2>
+            <p class="paragraph">Ao passar dos anos, a escalada foi ganhando cada vez mais adeptos e o reconhecimento pelo tal esporte levou a sua inclusão oficial nos Jogos Olímpicos.
+            </p>
+        </section>
+        <!--Vídeo Embutido-->
+        <div id="video" class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/OQrNHTfiHEM?si=KMGhIGiGGbcGzP58" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+        </div>
+        <section id="inclusao" class="text-wrapper">
+            <h2 class="h2"> Primeiros passos para a inclusão</h2>
+            <p class="paragraph">Em 2009, a Internacional Climbing and Montaineering Federation (UIAA) fez uma proposta formal, para que o esporte fosse incluído no cronograma olímpico. A ideia ganhou bastante apoio, e tal começou a ser relevada pelo Comitê Olímpico Internacional
+                (COI).
+            </p>
+        </section>
+        <section id="competicao" class="text-wrapper">
+            <h2 class="h2">Formato da competição:</h2>
+            <p class="paragraph">Na olimpíada de Tokyo 2020, a competição de escalada foi a única modalidade, que tinha sua composição baseada em três provas características: boulder, guiada e velocidade. </p>
+        </section>
+        <section id="regras" class="text-wrapper">
+            <h2 class="h2">Regras do Jogo:</h2>
+            <ol class="list">
+                <li>
+                    <h3 class="h2">Escalada de Dificuldade</h3>
+                    <p class="paragraph">
+                        <strong>
+                                Objetivo:
+                            </strong> Escalar uma rota o mais alto possível em um determinado tempo </p>
+                    <p class="paragraph">
+                        <strong>
+                                    Roteiros:
+                                </strong> Atletas têm um tempo limitado para tentar a rota, geralmente 6 minutos. Eles podem cair e tentar novamente, porém a pontuação final é baseada na altura alcançada e na quantidade de tempo
+                        gasto.
+                    </p>
+                    <p class="paragraph">
+                        <strong>
+                                Pontuação:
+                                </strong> A altura alcançada e o número de tentativas são os principais fatores qualificativos. Se dois atletas alcançam a mesma altura, o que chegou em maior distância será classificado com um nível
+                        maior.
+                    </p>
+                </li>
+                <li>
+                    <h3 class="h2">
+                        Boulder:
+                    </h3 class="h2">
+
+                    <p class="paragraph">
+                        <strong>
+                            Objetivo:
+                        </strong> Escalar uma série de blocos de baixa altura sem usar cordas, em um tempo determinado
+
+                    </p>
+                    <p class="paragraph">
+                        <strong>
+                        Roteiros:
+                    </strong> Os competidores tem tentativas ilimitadas para escalar cada bloco, podendo descansar entre as tentativas. No entanto, o tempo é limitado.
+                    </p>
+
+                    <p class="paragraph">
+                        <strong>
+                    Pontuação:
+                    </strong> A pontuação é baseada no número de blocos escalados e no número de tentativas. Um atleta que completa um bloco em menos tentativa tem a pontuação maior.
+                    </p>
+                </li>
+                <li>
+                    <h3 class="h2">
+                        Velocidade:
+                    </h3>
+                    <p class="paragraph">
+                        <strong>
+              Objetivo:
+          </strong> Escalar uma grande parede vertical em menor tempo possível.
+
+                    </p>
+                    <p class="paragraph">
+                        <strong>
+            Roteiros:
+        </strong> Os atletas competem em duplas, sendo eles adversários, concorrem em uma mesma rota simultaneamente.
+                    </p>
+                    <p class="paragraph">
+                        <strong>
+                           Pontuação:
+                       </strong> O atleta que chegar ao topo primeiro vence. Em caso de empate, o tempo total é o fator decisivo
+                    </p>
+                </li>
+            </ol>
+        </section>
+        <footer class="text-wrapper">
+            <p>Todos os direitos reservados © | <a href="#topo">Voltar ao topo</a></p>
+        </footer>
+    </main>
+    <br>
+
+
+
+
+
+    <script src="botao.js"></script>
+    <script src="api.js"></script>
+</body>
+
+</html>
